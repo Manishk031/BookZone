@@ -1,10 +1,12 @@
 package com.manish.bookzone
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -17,6 +19,9 @@ class DashboardFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+   lateinit var recycleDashboard: RecyclerView
+
+   lateinit var layoutManager: RecyclerView.LayoutManager
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -31,6 +36,11 @@ class DashboardFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view  = inflater.inflate(R.layout.fragment_dashboard, container, false)
+
+        recycleDashboard =  view.findViewById(R.id.recycleDashboard)
+
+        layoutManager = LinearLayoutManager(activity)
+
         return view
     }
 

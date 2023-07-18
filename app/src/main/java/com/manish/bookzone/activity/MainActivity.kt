@@ -1,18 +1,20 @@
-package com.manish.bookzone
+package com.manish.bookzone.activity
 
-import android.bluetooth.BluetoothCsipSetCoordinator
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.FrameLayout
-import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.widget.Toolbar
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationView
+import com.manish.bookzone.AboutFragment
+import com.manish.bookzone.DashboardFragment
+import com.manish.bookzone.FavouriteFragment
+import com.manish.bookzone.ProfileFragement
+import com.manish.bookzone.R
 
 @Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
@@ -62,21 +64,21 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.profile -> {
                    supportFragmentManager.beginTransaction()
-                       .replace(R.id.fragment,ProfileFragement())
+                       .replace(R.id.fragment, ProfileFragement())
                        .commit()
                     supportActionBar?.title="Profile"
                     drawerLayout.closeDrawers()
                 }
                R.id.fav -> {
                    supportFragmentManager.beginTransaction()
-                       .replace(R.id.fragment,FavouriteFragment())
+                       .replace(R.id.fragment, FavouriteFragment())
                        .commit()
                    supportActionBar?.title="Favourite"
                    drawerLayout.closeDrawers()
                }
                 R.id.about ->{
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.fragment,AboutFragment())
+                        .replace(R.id.fragment, AboutFragment())
                         .commit()
                     supportActionBar?.title="About"
                     drawerLayout.closeDrawers()
@@ -117,7 +119,7 @@ class MainActivity : AppCompatActivity() {
     override fun onBackPressed() {
         val frag = supportFragmentManager.findFragmentById(R.id.fragment)
         when(frag){
-            !is DashboardFragment  -> openDashboard()
+            !is DashboardFragment -> openDashboard()
              else -> {
                  super.onBackPressed()
              }
